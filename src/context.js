@@ -18,10 +18,16 @@ const AppProvider = ({ children }) => {
   // const [cart, setCart] = useState([])
   const [state, dispatch] = useReducer(reducer, initialState)
 
+  // clear all items from cart
+  const clearCart = () => {
+    dispatch({ type: "CLEAR_CART" })
+  }
+
   return (
     <AppContext.Provider
       value={{
         ...state,
+        clearCart,
       }}
     >
       {children}
