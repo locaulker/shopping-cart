@@ -34,7 +34,6 @@ const CartContainer = () => {
           <h4>
             Total
             <span>
-              $
               {new Intl.NumberFormat("en-US", {
                 style: "currency",
                 currency: "USD",
