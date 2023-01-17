@@ -2,10 +2,11 @@ const reducer = (state, action) => {
   if (action.type === "CLEAR_CART") {
     return {
       ...state,
-      cart: [],
+      cart: []
     }
   }
 
+  // the default state
   return state
 }
 

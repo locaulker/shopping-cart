@@ -11,14 +11,14 @@ const initialState = {
   loading: false,
   cart: cartItems,
   total: 0,
-  amount: 0, // amount means the quantity in the cart
+  amount: 0 // amount means the quantity in the cart
 }
 
 const AppProvider = ({ children }) => {
   // const [cart, setCart] = useState([])
   const [state, dispatch] = useReducer(reducer, initialState)
 
-  // clear all items from cart
+  // clear all items from cart gets passed to the Provider (see below)
   const clearCart = () => {
     dispatch({ type: "CLEAR_CART" })
   }
@@ -27,7 +27,7 @@ const AppProvider = ({ children }) => {
     <AppContext.Provider
       value={{
         ...state,
-        clearCart,
+        clearCart
       }}
     >
       {children}
