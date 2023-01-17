@@ -2,14 +2,14 @@ const reducer = (state, action) => {
   if (action.type === "CLEAR_CART") {
     return {
       ...state,
-      cart: []
+      cart: [],
     }
   }
 
   if (action.type === "REMOVE_ITEM") {
     return {
       ...state,
-      cart: state.cart.filter(cartItem => cartItem.id !== action.payload)
+      cart: state.cart.filter(cartItem => cartItem.id !== action.payload),
     }
   }
 
@@ -20,6 +20,18 @@ const reducer = (state, action) => {
       }
       return cartItem
     })
+    return { ...state, cart: tempCart }
+  }
+
+  if (action.type === "DECREASE_ITEM") {
+    let tempCart = state.cart
+      .map(cartItem => {
+        if (cartItem.id === action.payload) {
+          return { ...cartItem, amount: cartItem.amount - 1 }
+        }
+        return cartItem
+      })
+      .filter(cartItem => cartItem.amount !== 0)
     return { ...state, cart: tempCart }
   }
 

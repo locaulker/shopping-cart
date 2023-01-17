@@ -15,7 +15,7 @@ Variables
   --clr-red-dark: hsl(360, 67%, 44%);
   --clr-red-light: hsl(360, 71%, 66%);
   --transition: all 0.3s linear;
-  --spacing: 0.25rem;
+  /* --spacing: 0.05rem; */
   --radius: 0.25rem;
   --large-screen-width: 1170px;
   --small-screen-width: 90vw;
