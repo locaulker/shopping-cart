@@ -11,7 +11,7 @@ const initialState = {
   loading: false,
   cart: cartItems,
   total: 0,
-  amount: 0 // amount means the quantity in the cart
+  amount: 0, // amount means the quantity in the cart
 }
 
 const AppProvider = ({ children }) => {
@@ -38,6 +38,14 @@ const AppProvider = ({ children }) => {
     dispatch({ type: "DECREASE_ITEM", payload: id })
   }
 
+  /**
+   * - getting car ttotals
+   * - useEffect is run everytime anything changes in the cart
+   */
+  useEffect(() => {
+    dispatch({ type: "GET_TOTALS" })
+  }, [state.cart])
+
   return (
     <AppContext.Provider
       value={{
@@ -45,7 +53,7 @@ const AppProvider = ({ children }) => {
         clearCart,
         removeItem,
         increaseQuantity,
-        decreaseQuantity
+        decreaseQuantity,
       }}
     >
       {children}

@@ -32,7 +32,14 @@ const CartContainer = () => {
         <hr />
         <div className="cart-total">
           <h4>
-            total <span>${total.toFixed(2)}</span>
+            Total
+            <span>
+              $
+              {new Intl.NumberFormat("en-US", {
+                style: "currency",
+                currency: "USD",
+              }).format(total)}
+            </span>
           </h4>
         </div>
         <button className="btn clear-btn" onClick={clearCart}>
