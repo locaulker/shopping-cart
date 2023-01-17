@@ -38,6 +38,20 @@ const AppProvider = ({ children }) => {
     dispatch({ type: "DECREASE_ITEM", payload: id })
   }
 
+  // Fetching External Data
+  const fetchData = async () => {
+    dispatch({ type: "LOADING" })
+
+    const response = await fetch(url)
+    const cart = await response.json()
+
+    dispatch({ type: "DISPLAY_ITEMS", payload: cart })
+  }
+
+  useEffect(() => {
+    fetchData()
+  }, [])
+
   /**
    * - getting car ttotals
    * - useEffect is run everytime anything changes in the cart
